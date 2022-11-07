@@ -38,6 +38,10 @@ app.UseEndpoints(endpoints =>
            "Admin/{action}/{id?}",
            new { controller = "Admin", action = "Index" });
 
+    endpoints.MapControllerRoute("Brand",
+            "Brand/{id?}",
+            new { controller = "Catalog", action = "Brand" });
+
     endpoints.MapControllerRoute("route2",
        "{controller}/{action}/{id?}",
        new { controller = "Home", action = "Index" });
