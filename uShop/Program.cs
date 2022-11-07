@@ -32,7 +32,7 @@ app.UseEndpoints(endpoints =>
 
     endpoints.MapControllerRoute("route1",
        "Product/{id?}",
-       new { controller = "Product", action = "Product" });
+       new { controller = "Product", action = "Index" });
 
     endpoints.MapControllerRoute("Admin",
            "Admin/{action}/{id?}",

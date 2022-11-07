@@ -5,7 +5,7 @@ namespace uShop.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Product(string id)
+        public IActionResult Index(string id)
         {
             ObjectId Id = default;
             try
