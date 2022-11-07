@@ -3,3 +3,6 @@
 ################################################################################
 
 /uShop/.vs/uShop/v17
+/uShop/obj
+/uShop/bin/Debug/net6.0
+/uShop/.vs/uShop/config
