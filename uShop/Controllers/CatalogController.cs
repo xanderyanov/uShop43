@@ -40,7 +40,8 @@ namespace uShop.Controllers
             Products = Products.Where(p =>
                 (!viewSettings.NewOnly || p.FlagNew) &&
                 (!viewSettings.SaleLeaderOnly || p.FlagSaleLeader) &&
-                (string.IsNullOrEmpty(viewSettings.InexpensivePrice) || p.DiscountPrice < Double.Parse(viewSettings.InexpensivePrice))
+                (string.IsNullOrEmpty(viewSettings.InexpensivePrice) || p.DiscountPrice < Double.Parse(viewSettings.InexpensivePrice)) &&
+                (p.Gender == "Мужские")
             );
 
             Products = Products
