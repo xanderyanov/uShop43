@@ -14,6 +14,8 @@ Data.InitData(builder.Configuration);
 
 //Data.ImportCSV();     //Обновление товаров
 
+// Filter.CollectFilterValues();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

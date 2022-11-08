@@ -44,7 +44,11 @@ namespace uShop.Controllers
             );
 
             Products = Products
-                .Where(p => id == null || p.BrandName == id)
+                .Where(p => id == null || p.BrandName == id);
+
+            Filter.CollectPageFilterValues(Products);
+
+            Products = Products
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize);
 
@@ -56,11 +60,7 @@ namespace uShop.Controllers
                 {
                     CurrentPage = productPage,
                     ItemsPerPage = PageSize,
-                    TotalItems = id == null ?
-                        products.Count() :
-                        products.Where(e =>
-                            e.BrandName == id).Count()
-
+                    TotalItems = id == null ? products.Count() : products.Where(e => e.BrandName == id).Count()
                 },
                 CurrentCategory = id
             });
@@ -91,19 +91,13 @@ namespace uShop.Controllers
             ViewBag.ViewSettings = viewSettings;
 
             IEnumerable<Product> Products = Data.ExistingTovars;
-            //.OrderBy(p => p.Id)
-            //if (viewSettings.NewOnly) Products = Products.Where(p => p.FlagNew);
-            //if (viewSettings.SaleLeaderOnly) Products = Products.Where(p => p.FlagSaleLeader);
 
-            //Products = Products.Where(p =>
-            //    (!viewSettings.NewOnly || p.FlagNew) &&
-            //    (!viewSettings.SaleLeaderOnly || p.FlagSaleLeader) &&
-            //    (string.IsNullOrEmpty(viewSettings.InexpensivePrice) || p.DiscountPrice < Double.Parse(viewSettings.InexpensivePrice))
-            //);
+            Filter.CollectPageFilterValues(Products);
 
             Products = Products
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize);
+
 
             return View("Catalog", new ProductsListViewModel
             {

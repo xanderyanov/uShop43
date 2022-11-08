@@ -42,7 +42,6 @@ public static class Data
         return productsCollection.Find(filter).ToList();
     }
 
-
     public static double TryParseDouble(string src, double Default)
     {
         if (string.IsNullOrEmpty(src))
@@ -185,6 +184,6 @@ public static class Data
     }
 
     static ReplaceOptions AlwaysUpsert = new() { IsUpsert = true };
-
-
+    
+    
 }
